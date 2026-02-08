@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EH 55 Förderung - Detailansicht</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .image-container {
+            position: relative;
+            margin-bottom: 30px;
+            cursor: zoom-in;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.02);
+        }
+
+        .description {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 30px;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .description h2 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .description p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            cursor: zoom-out;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .zoom-hint {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .description h2 {
+                font-size: 1.4em;
+            }
+
+            .back-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Zurück zur Galerie</a>
+
+    <div class="container">
+        <h1>EH 55 Förderung</h1>
+        
+        <div class="image-container" onclick="openLightbox()">
+            <img src="bilder/EH_55_Foerderung.jpg" alt="EH 55 Förderung" id="mainImage">
+            <p class="zoom-hint">🔍 Klicke auf das Bild zum Vergrößern</p>
+        </div>
+
+        <div class="description">
+            <h2>Update Fördermittel: Budget schmilzt - Nutzen Sie den Hebel zum EH 55</h2>
+            <p>
+                Der Wettlauf um die Fördermittel hat begonnen. Aktuelle Zahlen aus dem Bauministerium zeigen: 
+                Von den ursprünglich bereitgestellten 800 Millionen Euro für die EH-55-Neubauförderung verbleiben 
+                aktuell noch rund 650 Millionen Euro im Budget. Das bedeutet: Ein beträchtlicher Teil der Mittel 
+                ist bereits gebunden – warten Sie nicht, bis der Topf leer ist.
+            </p>
+            <p style="margin-top: 15px;">
+                Viele Projektentwickler lassen diese Förderung liegen, weil sich mit dem GEG 2023 die Vorstellung 
+                verfestigt hat, dass das Effizienzhaus 55 ohnehin dem energetischen Standard des GEG 2024 entspricht.
+            </p>
+            <p style="margin-top: 15px;">
+                <strong>Diese Annahme ist ein teurer Irrtum.</strong>
+            </p>
+            <p style="margin-top: 15px;">
+                Wie unsere Grafik zeigt, stimmt die Gleichsetzung zwar beim Primärenergiebedarf, doch der zweite 
+                Nachweis – der Transmissionswärmebedarf – wird häufig nicht automatisch erfüllt. Hier fordert der 
+                EH-55-Standard etwa 30% bessere Werte als das Referenzgebäude.
+            </p>
+            <p style="margin-top: 15px;">
+                <strong>Ihre Chance auf den Fördertopf:</strong> In der Praxis liegen viele nach GEG geplante Gebäude 
+                bereits bei 80–90% der EH-55-Anforderung. Der Weg zur Förderfähigkeit ist oft kürzer als gedacht. 
+                Mit gezielten Maßnahmen oder alternativen Nachweisen lässt sich der Standard oft mit geringem Aufwand erreichen.
+            </p>
+            <p style="margin-top: 15px;">
+                Sichern Sie sich Ihren Anteil an den verbleibenden 650 Millionen Euro, bevor die Mittel erschöpft sind.
+            </p>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">×</span>
+        <img src="bilder/EH_55_Foerderung.jpg" alt="EH 55 Förderung Vergrößerung">
+    </div>
+
+    <script>
+        function openLightbox() {
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // ESC-Taste zum Schließen
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
